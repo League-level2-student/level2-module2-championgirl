@@ -75,10 +75,33 @@ public class LeagueSnake extends PApplet {
 
     void drawTail() {
         // Draw each segment of the tail
-    	for(Segment t: tail ) {
-    		rect(t.x,t.y,10,10);
+    
     		
+    	if (snakeDirection == UP) {
+    		int segmentSpacing = 5;
+    		for(Segment t: tail ) {
+    	    t.y += segmentSpacing;
+    	    
+            t.y  =-3;
+    		}
     	}
+    
+    	//if (snakeDirection == DOWN) {
+    	//	rect(t.x,t.y -5 ,10,10);
+    	//}
+    	
+    	
+    	//if (snakeDirection == LEFT) {
+    //		rect(t.x +5,t.y  ,10,10);
+    	//}
+    	//if (snakeDirection == RIGHT) {
+    	//	rect(t.x  -5,t.y ,10,10);
+    	//}
+    	
+    		
+    		//add 5 to x
+    		
+    	
     }
 
     /*
@@ -184,7 +207,7 @@ public class LeagueSnake extends PApplet {
     	if((snakeHead.x >= foodX - 5 ) && (snakeHead.x <= foodX+5) && (snakeHead.y >= foodY - 5) && (snakeHead.y <= foodY + 5)) {
     		piecesEaten +=1;
     		dropFood();
-    		tail.add(new Segment(snakeHead.x,snakeHead.y));
+    		tail.add(new Segment(snakeHead.x +5,snakeHead.y));
     	}
         // When the snake eats the food, its tail should grow and more
         // food appear
